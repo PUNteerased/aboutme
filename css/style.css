@@ -9,6 +9,10 @@ body {
     flex-direction: column;
 }
 
+.text-link {
+    color: #fff;
+}
+
 .content {
     padding: 20px;
     text-align: center;
