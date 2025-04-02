@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPortfolio</title>
+    <style>
+        body {
+            background-color: black;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .cmd-container {
+            width: 80%;
+            height: 80%;
+            border: 2px solid #fff;
+            padding: 20px;
+            text-align: left;
+            overflow-y: auto;
+        }
+        .cmd-line {
+            display: flex;
+            align-items: center;
+            font-size: 1.2em;
+        }
+        .cmd-prompt {
+            margin-right: 5px;
+        }
+        .cmd-input {
+            background-color: black;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.2em;
+            border: none;
+            outline: none;
+            width: auto;
+            flex: 1;
+        }
+        .cmd-output {
+            margin-left: 5px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            createNewInput();
+            document.getElementById("cmd-container").addEventListener("keypress", function (event) {
+                if (event.key === "Enter") {
+                    checkText();
+                }
+            });
+        });
+
+        function checkText() {
+            const correctText = "test";
+            const userInput = document.getElementById("userInput").value.trim();
+            const cmdContainer = document.getElementById("cmd-container");
+
+            addNewLine(userInput);
+
+            if (userInput === correctText) {
+                addNewLine("1 second...");
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 1000);
+            } else {
+                addNewLine("'" + userInput + "' is not recognized as an internal or external command, operable program or batch file.");
+            }
+
+            createNewInput();
+        }
+
+        function addNewLine(text) {
+            let p = document.createElement("p");
+            let cmdOutput = document.createElement("span");
+            cmdOutput.classList.add("cmd-output");
+            cmdOutput.textContent = text;
+
+            p.appendChild(cmdOutput);
+            document.getElementById("cmd-container").appendChild(p);
+        }
+
+        function createNewInput() {
+            let cmdContainer = document.getElementById("cmd-container");
+
+            let oldInput = document.getElementById("userInput");
+            if (oldInput) oldInput.remove();
+
+            let newLine = document.createElement("div");
+            newLine.classList.add("cmd-line");
+
+            let prompt = document.createElement("span");
+            prompt.classList.add("cmd-prompt");
+            prompt.textContent = "C:\\Users\\User>";
+
+            let newInput = document.createElement("input");
+            newInput.type = "text";
+            newInput.id = "userInput";
+            newInput.classList.add("cmd-input");
+            newInput.autofocus = true;
+
+            newLine.appendChild(prompt);
+            newLine.appendChild(newInput);
+            cmdContainer.appendChild(newLine);
+
+            newInput.focus();
+            cmdContainer.scrollTop = cmdContainer.scrollHeight;
+        }
+    </script>
+</head>
+<body>
+    <div class="cmd-container" id="cmd-container"></div>
+</body>
+</html>
