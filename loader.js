@@ -33,8 +33,8 @@ const canvas = document.getElementById("matrix");
             document.getElementById("loader").classList.add("fade-out");
             setTimeout(() => {
                 document.querySelector(".content").style.display = "block";
-            }, 1500);
-        }, 3000);
+            }, 500);
+        }, 2500);
 
         window.addEventListener("beforeunload", (event) => {
             event.preventDefault();
@@ -42,5 +42,5 @@ const canvas = document.getElementById("matrix");
             document.getElementById("loader").classList.remove("fade-out");
             setTimeout(() => {
                 document.getElementById("loader").classList.add("fade-out");
-            }, 3000);
+            }, 2500);
         });
