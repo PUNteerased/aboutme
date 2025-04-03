@@ -57,19 +57,20 @@
         });
 
         function checkText() {
-            const correctText = "test";
+            const correctText = "start home.html";
             const userInput = document.getElementById("userInput").value.trim();
             const cmdContainer = document.getElementById("cmd-container");
 
             addNewLine(userInput);
 
             if (userInput === correctText) {
-                addNewLine("1 second...");
+                addNewLine("Hold on a second")
                 setTimeout(() => {
                     window.location.href = "home.html";
-                }, 1000);
+                }, 1500);
             } else {
                 addNewLine("'" + userInput + "' is not recognized as an internal or external command, operable program or batch file.");
+                addNewLine("Please type 'start home.html'");
             }
 
             createNewInput();
