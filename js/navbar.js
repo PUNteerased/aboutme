@@ -10,19 +10,16 @@ document.addEventListener("DOMContentLoaded", () => {
         e.stopPropagation();
         menuBtn.classList.toggle("active");
 
-        // เปลี่ยนไอคอน ☰ ↔ ✖
         menuBtn.textContent = menuBtn.classList.contains("active") ? "✖" : "☰";
     });
 
-    // 📌 ปิดเมนูเมื่อคลิกข้างนอก
     document.addEventListener("click", function (e) {
         if (!menu.contains(e.target)) {
             menuBtn.classList.remove("active");
-            menuBtn.textContent = "☰"; // กลับเป็น 3 ขีด
+            menuBtn.textContent = "☰";
         }
     });
 
-    // 🖱️ ลากปุ่มเมนูได้
     draggableMenu.addEventListener("mousedown", (e) => {
         isDragging = true;
         offsetX = e.clientX - draggableMenu.getBoundingClientRect().left;
@@ -43,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
         draggableMenu.style.cursor = "grab";
     });
 
-    // รองรับการลากบนมือถือ
     draggableMenu.addEventListener("touchstart", (e) => {
         isDragging = true;
         let touch = e.touches[0];
