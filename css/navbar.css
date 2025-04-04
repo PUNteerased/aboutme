@@ -28,8 +28,8 @@ body {
   font-size: 32px;
   border: none;
   border-radius: 50%;
-  background-color: #007bff;
-  color: white;
+  background-color: #7e57c2;
+  color: #ffffff;
   cursor: pointer;
   outline: none;
   display: flex;
@@ -40,12 +40,12 @@ body {
 }
 
 #menu-btn:hover {
-  background-color: #0056b3;
+  background-color: #9575cd;
 }
 
 #menu-btn.active {
   transform: rotate(180deg);
-  background-color: #ff4757;
+  background-color: #7e57c2;
 }
 
 #menu-items {
@@ -64,6 +64,10 @@ body {
   transition: opacity 0.3s ease;
 }
 
+#menu-btn.active:hover {
+  background-color: #9575cd;
+}
+  
 .menu-item {
   position: absolute;
   width: 45px;
@@ -88,6 +92,16 @@ body {
   opacity: 1;
   transform: scale(1);
   pointer-events: auto;
+}
+
+.menu-item:hover {
+  width: 50px;
+  height: 50px;
+  background-color: #ffffff;
+  color: white;
+  transition: all 0.5s ease-in-out;
+  transform: scale(0);
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .menu-item a {
@@ -117,14 +131,21 @@ body {
   }
 }
 
-#menu-btn.active + #menu-items .menu-item:nth-child(1) { transform: translate(-50px, -75px) scale(1); }
-#menu-btn.active + #menu-items .menu-item:nth-child(2) { transform: translate(50px, -75px) scale(1); }
-#menu-btn.active + #menu-items .menu-item:nth-child(3) { transform: translate(-75px, 0px) scale(1); }
-#menu-btn.active + #menu-items .menu-item:nth-child(4) { transform: translate(75px, 0px) scale(1); }
-#menu-btn.active + #menu-items .menu-item:nth-child(5) { transform: translate(-50px, 75px) scale(1); }
-#menu-btn.active + #menu-items .menu-item:nth-child(6) { transform: translate(50px, 75px) scale(1); }
-
-.menu-item:hover {
-  background-color: #007bff;
-  color: white;
+#menu-btn.active + #menu-items .menu-item:nth-child(1) {
+  transform: translate(-50px, -75px) scale(1);
+}
+#menu-btn.active + #menu-items .menu-item:nth-child(2) {
+  transform: translate(50px, -75px) scale(1);
+}
+#menu-btn.active + #menu-items .menu-item:nth-child(3) {
+  transform: translate(-75px, 0px) scale(1);
+}
+#menu-btn.active + #menu-items .menu-item:nth-child(4) {
+  transform: translate(75px, 0px) scale(1);
+}
+#menu-btn.active + #menu-items .menu-item:nth-child(5) {
+  transform: translate(-50px, 75px) scale(1);
+}
+#menu-btn.active + #menu-items .menu-item:nth-child(6) {
+  transform: translate(50px, 75px) scale(1);
 }
