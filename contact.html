@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teerased</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+          emailjs.init("Pfs8MvV0CwZEy_D4r");
+        })();
+      </script>
+      <style>
+        body {
+          font-family: 'Sarabun', sans-serif;
+          background: #000000;
+          padding: 30px;
+        }
+        .form-box {
+          max-width: 500px;
+          margin: auto;
+          background: #808080;
+          padding: 30px;
+          border-radius: 10px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        input, textarea {
+          width: 100%;
+          padding: 12px;
+          margin: 10px 0;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+        }
+        button {
+          width: 100%;
+          padding: 12px;
+          background: #9575cd;
+          color: white;
+          font-size: 16px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+        button:hover {
+          background: #7e57c2;
+        }
+        .success-message {
+          text-align: center;
+          color: green;
+          margin-top: 15px;
+        }
+      </style>
+    <style>
+        .translation-content {
+            display: none;
+        }
+        .translation-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="loader">
+        <canvas id="matrix"></canvas>
+    </div>
+
+    <div id="draggable-menu">
+        <button id="menu-btn">☰</button>
+        <div id="menu-items">
+            <a href="home.html" class="menu-item"><img src="image/home.png" width="30" height="30"></a>
+            <a href="education.html" class="menu-item"><img src="image/education.png" width="30" height="30"></a>
+            <a href="portfolio.html" class="menu-item"><img src="image/portfolio.png" width="30" height="30"></a>
+            <a href="contact.html" class="menu-item"><img src="image/contact.png" width="30" height="30"></a>
+            <a class="menu-item" id="toggleModeBtn"><img src="image/daynight.png" width="30" height="30"></a>
+            <a class="menu-item" id="toggleLangBtn"><img src="image/translation.png" width="30" height="30"></a>
+        </div>
+    </div>
+
+    <div class="form-box">
+        <h2 >ติดต่อเรา</h2>
+        <form id="contact-form">
+            <input type="text" name="name" placeholder="ชื่อของคุณ" required>
+            <input type="email" name="email" placeholder="อีเมล" required>
+            <input name="phone" placeholder="เบอร์" required>
+            <textarea name="message" placeholder="ข้อความของคุณ" required></textarea>
+            <button type="submit">ส่งข้อความ</button>
+            <div class="success-message" id="success">ส่งข้อความสำเร็จแล้ว!</div>
+        </form>
+    </div>
+
+    
+
+    <script src="js/loader.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/translate.js"></script>
+    <script>
+        document.getElementById("toggleModeBtn").addEventListener("click", function () {
+        document.body.classList.toggle("day-mode");});
+    </script>
+    <script>document.getElementById("toggleLangBtn").addEventListener("click", function () {
+        const currentLang = document.querySelector(".translation-content.active").id === "content-th" ? "th" : "en";
+    
+        const newLang = currentLang === "th" ? "en" : "th";
+    
+        document.querySelectorAll(".translation-content").forEach(content => content.classList.remove("active"));
+        document.getElementById("content-" + newLang).classList.add("active");
+    
+        localStorage.setItem("preferredLanguage", newLang);
+    });
+    
+    document.addEventListener("DOMContentLoaded", () => {
+        const savedLang = localStorage.getItem("preferredLanguage") || "th";
+        document.getElementById("toggleLangBtn").click();
+    });
+    </script>
+    <script>
+        const form = document.getElementById('contact-form');
+        const successMessage = document.getElementById('success');
+        successMessage.style.display = "none";
+      
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+      
+          emailjs.sendForm('service_vgtewao', 'template_h7c0kei', this)
+            .then(function(response) {
+              console.log('SUCCESS!', response.status, response.text);
+              successMessage.style.display = "block";
+              form.reset();
+            }, function(error) {
+              console.log('FAILED...', error);
+              alert("เกิดข้อผิดพลาดในการส่ง กรุณาลองใหม่");
+            });
+        });
+      </script>
+</body>
+</html>
