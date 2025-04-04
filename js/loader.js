@@ -35,12 +35,10 @@ const canvas = document.getElementById("matrix");
                 document.querySelector(".content").style.display = "block";
             }, 500);
         }, 2500);
-
-        window.addEventListener("beforeunload", (event) => {
-            event.preventDefault();
-            event.returnValue = "";
+        
+        window.addEventListener("pagehide", () => {
             document.getElementById("loader").classList.remove("fade-out");
             setTimeout(() => {
                 document.getElementById("loader").classList.add("fade-out");
             }, 2500);
-        });
+        });        
