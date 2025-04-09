@@ -20,6 +20,8 @@ body {
   cursor: grab;
   user-select: none;
   transition: transform 0.2s ease;
+  z-index: 4;
+  display: flex;
 }
 
 #menu-btn {
@@ -84,8 +86,8 @@ body {
   align-items: center;
   transition: all 0.3s ease-in-out;
   opacity: 1;
-  transform: scale(0);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: scale(0.001);
+  transition: transform 0.2s ease
 }
 
 #menu-btn.active + #menu-items .menu-item {
@@ -99,9 +101,7 @@ body {
   height: 50px;
   background-color: #ffffff;
   color: white;
-  transition: all 0.5s ease-in-out;
-  transform: scale(0);
-  transition: transform 0.5s ease, opacity 0.5s ease;
+  transform: scale(1.1);
 }
 
 .menu-item a {
