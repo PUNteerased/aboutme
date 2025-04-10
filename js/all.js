@@ -14,7 +14,7 @@ const touchmoveHandler = (e) => {
   if (maybePreventPullToRefresh) {
     maybePreventPullToRefresh = false;
     if (touchYDelta > 0) {
-      e.preventDefault(); // ปิดการรีเฟรช
+      e.preventDefault();
     }
   }
 };
