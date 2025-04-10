@@ -1,4 +1,3 @@
-
 var th = {
     button: "ไทย",
     pun: "ปุณณ์",
