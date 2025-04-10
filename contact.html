@@ -7,60 +7,22 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/loader.css">
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <style>
+      .translation-content {
+          display: none;
+      }
+      .translation-content.active {
+          display: block;
+      }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
-        (function() {
-          emailjs.init("Pfs8MvV0CwZEy_D4r");
-        })();
-      </script>
-      <style>
-        body {
-          font-family: 'Sarabun', sans-serif;
-          background: #000000;
-          padding: 30px;
-        }
-        .form-box {
-          max-width: 500px;
-          margin: auto;
-          background: #808080;
-          padding: 30px;
-          border-radius: 10px;
-          box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        input, textarea {
-          width: 100%;
-          padding: 12px;
-          margin: 10px 0;
-          border-radius: 5px;
-          border: 1px solid #ccc;
-        }
-        button {
-          width: 100%;
-          padding: 12px;
-          background: #9575cd;
-          color: white;
-          font-size: 16px;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-        }
-        button:hover {
-          background: #7e57c2;
-        }
-        .success-message {
-          text-align: center;
-          color: green;
-          margin-top: 15px;
-        }
-      </style>
-    <style>
-        .translation-content {
-            display: none;
-        }
-        .translation-content.active {
-            display: block;
-        }
-    </style>
+      (function() {
+        emailjs.init("Pfs8MvV0CwZEy_D4r");
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <div id="loader">
@@ -68,7 +30,7 @@
     </div>
 
     <div id="draggable-menu">
-        <button id="menu-btn">☰</button>
+      <button id="menu-btn">☰</button>
         <div id="menu-items">
             <a href="home.html" class="menu-item"><img src="image/home.png" width="30" height="30"></a>
             <a href="education.html" class="menu-item"><img src="image/education.png" width="30" height="30"></a>
@@ -79,23 +41,56 @@
         </div>
     </div>
 
-    <div class="form-box">
-        <h2>Feedback</h2>
+    <div class="contact-wrapper">
+      <div class="form-envelope">
         <form id="contact-form">
-            <input type="text" name="name" placeholder="ชื่อของคุณ" required>
-            <input type="email" name="email" placeholder="อีเมล" required>
-            <input name="phone" placeholder="เบอร์" required>
-            <textarea name="message" placeholder="ข้อความของคุณ" required></textarea>
-            <button type="submit">ส่งข้อความ</button>
-            <div class="success-message" id="success">ส่งข้อความสำเร็จแล้ว!</div>
+          <div class="form-group">
+            <label>Name<span class="required">*</span></label>
+              <input type="text" name="name" placeholder="Name" required>
+          </div>
+          <div class="form-group half">
+            <label>Email<span class="required">*</span></label>
+            <input type="email" name="email" placeholder="example@example.com" required>
+            <small>example@example.com</small>
+          </div>
+          <div class="form-group half">
+            <label>Phone<span class="required">*</span></label>
+            <input type="tel" name="phone" placeholder="Phone number">
+          </div>
+          <div class="form-group" style="flex: 1 1 100%;">
+            <label>Message<span class="required">*</span></label>
+            <textarea name="message" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Submit</button>
+          <div class="success-message" id="success">ส่งข้อความสำเร็จแล้ว!</div>
         </form>
+      </div>
+      <div class="contact-info-simple">
+        <h2>Contact Info</h2>
+        <div class="contact-icons">
+          <img src="image/envelope.png" alt="Email Icon">
+          <span>Email: demakpai555@gmail.com</span>
+        </div>
+        <div class="contact-icons-2" margin-bottom: 20px;>
+          <img src="image/phone-call.png" alt="Phone Icon">
+          <span>Phone: 0918437354</span>
+        </div>
+        <div class="contact-icons-3">
+          <img src="image/placeholder.png" alt="Location Icon">
+          <span>Address: Sukhothai, Thailand</span>
+        </div>
+        <div class="social-icons">
+          <a href="https://line.me/ti/p/A_lEpqPgVW" target="_blank"><img src="image/line.png" alt="LINE"/></a>
+          <a href="https://www.facebook.com/share/1G7fEx5Ggt/" target="_blank"><img src="image/facebook.png" alt="Facebook"/></a>
+          <a href="https://www.instagram.com/pxn_t.u" target="_blank"><img src="image/instagram.png" alt="Instagram"/></a>
+        </div>
+      </div>
     </div>
-
-    
 
     <script src="js/loader.js"></script>
     <script src="js/navbar.js"></script>
     <script src="js/translate.js"></script>
+    
     <script>
         document.getElementById("toggleModeBtn").addEventListener("click", function () {
         document.body.classList.toggle("day-mode");});
@@ -134,6 +129,6 @@
               alert("เกิดข้อผิดพลาดในการส่ง กรุณาลองใหม่");
             });
         });
-      </script>
+    </script>
 </body>
 </html>

@@ -1,0 +1,47 @@
+body {
+    background-color: black;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    transition: background 0.5s ease, color 0.5s ease;
+    overscroll-behavior: contain;
+    touch-action: pan-x pan-y;
+}
+  
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: none;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 8px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.day-mode {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.day-mode button {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.day-mode button:hover {
+    background-color: #0f0f0f;
+}
