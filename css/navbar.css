@@ -129,6 +129,10 @@ body {
     height: 35px;
     margin: 10px;
   }
+
+  #menu-btn.active {
+    text-align: center;
+  }
 }
 
 #menu-btn.active + #menu-items .menu-item:nth-child(1) {
