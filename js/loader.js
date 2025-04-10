@@ -34,11 +34,11 @@ const canvas = document.getElementById("matrix");
             setTimeout(() => {
                 document.querySelector(".content").style.display = "block";
             }, 500);
-        }, 2500);
+        }, 1000);
         
         window.addEventListener("pagehide", () => {
             document.getElementById("loader").classList.remove("fade-out");
             setTimeout(() => {
                 document.getElementById("loader").classList.add("fade-out");
-            }, 2500);
+            }, 1000);
         });        
