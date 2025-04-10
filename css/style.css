@@ -8,8 +8,10 @@ body {
     margin: 0;
     flex-direction: column;
     transition: background 0.5s ease, color 0.5s ease;
+    overscroll-behavior: contain;
+    touch-action: pan-x pan-y;
 }
-
+  
 .content {
     padding: 20px;
     text-align: center;
