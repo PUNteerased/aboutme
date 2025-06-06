@@ -209,10 +209,10 @@
     color: #000;
     margin-left: 10px;
   }
-  
+
   .social-icons {
     position: absolute;
-    bottom: 20px;
+    bottom: 120px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -230,6 +230,29 @@
   }
   
   .social-icons a img:hover {
+    transform: scale(1.1);
+  }
+
+  .social-icons-1 {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social-icons-1 a img {
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    background: white;
+    padding: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+  }
+
+  .social-icons-1 a img:hover {
     transform: scale(1.1);
   }
 
