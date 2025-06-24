@@ -233,7 +233,7 @@
     transform: scale(1.1);
   }
 
-  .social-icons-1 {
+  .social-icons-2 {
     position: absolute;
     bottom: 20px;
     left: 50%;
@@ -242,7 +242,7 @@
     gap: 15px;
   }
   
-  .social-icons-1 a img {
+  .social-icons-2 a img {
     width: 80px;
     height: 80px;
     border-radius: 15px;
@@ -252,7 +252,7 @@
     transition: transform 0.2s ease;
   }
 
-  .social-icons-1 a img:hover {
+  .social-icons-2 a img:hover {
     transform: scale(1.1);
   }
 
